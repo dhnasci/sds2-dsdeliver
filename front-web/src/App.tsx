@@ -1,14 +1,11 @@
 import './App.css';
-import Hello from './Hello';
+import Counter from './Counter';
 
 function App() {
   
   return (
     <div>
-      <Hello message="Dirceu Henrique" />
-      <Hello message="Washington" />
-      <Hello message="Nélio Alves" />
-      <Hello message="Dev Superior" />
+      <Counter />
     </div>
   );
 }
