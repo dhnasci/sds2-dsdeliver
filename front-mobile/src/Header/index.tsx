@@ -11,7 +11,6 @@ export default function Header() {
     navigation.navigate('Home');
   }
   
-
   return (
     <TouchableWithoutFeedback onPress={handleOnPress}>
       <View style={styles.container}>

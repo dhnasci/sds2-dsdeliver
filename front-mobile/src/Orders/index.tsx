@@ -1,20 +1,29 @@
-import React from 'react';
-import { StyleSheet, Text, ScrollView } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, ScrollView, Alert, TouchableWithoutFeedback } from 'react-native';
+import { fetchOrders } from '../../api';
 import Header from '../Header';
 import OrderCard from '../OrderCard';
+import { Order } from '../types';
 
 function Orders() {
+
+  const [orders, setOrders] = useState<Order[]>([]);
+
+  useEffect( () => {
+    fetchOrders()
+      .then( response => setOrders(response.data))
+      .catch(() => Alert.alert('Houve um erro ao buscar os pedidos'))
+  }, [] );
   
   return (
     <>
         <Header />
         <ScrollView style={styles.container}>
-          <OrderCard />
-          <OrderCard />
-          <OrderCard />
-          <OrderCard />
-          <OrderCard />
-          <OrderCard />
+          {orders.map( order => {
+            <TouchableWithoutFeedback key={order.id}>
+              <OrderCard order={order} />
+            </TouchableWithoutFeedback>
+          })}
         </ScrollView>
     </>
   );
