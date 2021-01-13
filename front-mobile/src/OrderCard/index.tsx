@@ -19,11 +19,11 @@ return (
             Há {order.moment}
         </Text>
         <View style={styles.productsList}>
-        {order.products.map( product => {
+        {order.products.map( product => (
             <Text style={styles.text} key={product.id}>
                 {product.name}
             </Text>
-        })}           
+        ))}           
         </View>
     </View>
   );
