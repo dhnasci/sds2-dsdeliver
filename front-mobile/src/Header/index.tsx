@@ -8,6 +8,7 @@ export default function Header() {
   const navigation = useNavigation();
 
   const handleOnPress = () => {
+    console.log('front-mobile Header');
     navigation.navigate('Home');
   }
   
